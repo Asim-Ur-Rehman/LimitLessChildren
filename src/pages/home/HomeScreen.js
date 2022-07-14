@@ -136,10 +136,12 @@ function HomeScreen({ navigation, user, userLogout }) {
                     <TouchableOpacity
                       activeOpacity={0.8}
                       onPress={() => {
-                        navigation.navigate('VideoPlayer', {
+                        // navigation.navigate('VideoPlayer', {
+                        //   vedioData: item
+                        // })
+                        navigation.navigate('DetailScreen', {
                           vedioData: item
                         })
-                        // navigation.navigate('DetailScreen')
                       }}>
                       <View
                         style={{
