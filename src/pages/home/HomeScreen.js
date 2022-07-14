@@ -253,7 +253,11 @@ function HomeScreen({ navigation, user, userLogout }) {
                           <>
                             <CardView
                               onPress={() => {
-                                navigation.navigate('VideoPlayer', {
+                                // navigation.navigate('VideoPlayer', {
+                                //   vedioData: item
+                                // })
+
+                                navigation.navigate('DetailScreen', {
                                   vedioData: item
                                 })
                               }}
