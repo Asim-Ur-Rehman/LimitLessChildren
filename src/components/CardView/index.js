@@ -22,7 +22,7 @@ export default function CardView({
       onPress={onPress}
       style={styles.container}>
       <Image style={styles.playIcon} source={play} />
-      <Image style={styles.moviepng} source={{uri: image}} />
+      <Image style={styles.moviepng} source={typeof image === 'string' ? { uri: image } : image} />
       <Text style={styles.title}>{title}</Text>
       <Text style={styles.description}>{description}</Text>
     </TouchableOpacity>

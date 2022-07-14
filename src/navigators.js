@@ -1,5 +1,5 @@
-import {Text, View, Image, TouchableOpacity} from 'react-native';
-import React, {Component, useState} from 'react';
+import { Text, View, Image, TouchableOpacity } from 'react-native';
+import React, { Component, useState } from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Login from './pages/login/login';
 import SignUp from './pages/signup/signup';
@@ -16,14 +16,14 @@ import Setting from './pages/setting/setting';
 import About from './pages/About/about';
 import Help from './pages/help/help';
 import CustomDrawer from './CustomDrawer';
-import {connect, useSelector} from 'react-redux';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {createDrawerNavigator} from '@react-navigation/drawer';
-import {createStackNavigator} from '@react-navigation/stack';
+import { connect, useSelector } from 'react-redux';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createStackNavigator } from '@react-navigation/stack';
 import CustomTabBar from './CustomTabBar';
 import Like from './pages/Like/Like';
 import FAQS from './pages/FAQS/FAQS';
-import {VideoPlayer} from './pages/PlayVideo/PlayVideo';
+import { VideoPlayer } from './pages/PlayVideo/PlayVideo';
 import {
   getFocusedRouteNameFromRoute,
   useNavigation,
@@ -99,7 +99,7 @@ const drawerButton = navigation => {
       }}>
       <Image
         source={require('./assets/menu-icon.png')}
-        style={{width: 20, height: 20, resizeMode: 'contain', marginLeft: 12}}
+        style={{ width: 20, height: 20, resizeMode: 'contain', marginLeft: 12 }}
       />
     </TouchableOpacity>
   );
@@ -109,7 +109,7 @@ const headerTitle = navigation => {
     <View>
       <Image
         source={require('./assets/home-top-logo.png')}
-        style={{width: 45, height: 45, resizeMode: 'contain'}}
+        style={{ width: 45, height: 45, resizeMode: 'contain' }}
       />
     </View>
   );
@@ -118,11 +118,11 @@ const headerTitle = navigation => {
 const notificationIcon = navigation => {
   const hookNavigation = useNavigation();
   return (
-    <View style={{flex: 1, flexDirection: 'row', alignItems: 'center'}}>
+    <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}>
       <TouchableOpacity
         activeOpacity={0.9}
         onPress={() => hookNavigation.navigate('Notification')}
-        style={{flex: 1}}>
+        style={{ flex: 1 }}>
         <Image
           source={require('./assets/notifcation03.png')}
           style={{
@@ -139,7 +139,7 @@ const notificationIcon = navigation => {
 const profiletionIcon = navigation => {
   return (
     <TouchableOpacity>
-      <View style={{flex: 1, flexDirection: 'row', alignItems: 'center'}}>
+      <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}>
         <Image
           style={{
             width: 13,
@@ -191,7 +191,7 @@ function LoginStack() {
   );
 }
 
-function HomeTabAStack({navigation, route}) {
+function HomeTabAStack({ navigation, route }) {
   return (
     <HomeTabAStackNav.Navigator
       initialRouteName="Home"
@@ -215,7 +215,7 @@ function HomeTabAStack({navigation, route}) {
       <HomeTabAStackNav.Screen
         name="Home"
         component={HomeScreen}
-        options={({navigation}) => ({
+        options={({ navigation }) => ({
           headerTitle: () => headerTitle(navigation),
           headerLeft: () => drawerButton(navigation),
           headerRight: () => notificationIcon(navigation),
@@ -249,7 +249,7 @@ function HomeSearchStack() {
       <HomeSearchStackNav.Screen
         name="SEARCH"
         component={search}
-        options={({navigation}) => ({
+        options={({ navigation }) => ({
           headerLeft: () => drawerButton(navigation),
           headerRight: () => notificationIcon(navigation),
         })}
@@ -282,7 +282,7 @@ function HomeLikeStack() {
       <HomeLikeStackNav.Screen
         name="FAVORITES"
         component={Like}
-        options={({navigation}) => ({
+        options={({ navigation }) => ({
           headerLeft: () => drawerButton(navigation),
           headerRight: () => notificationIcon(navigation),
         })}
@@ -315,7 +315,7 @@ function HomeListStack() {
       <HomeListStackNav.Screen
         name="PLAYLIST"
         component={list}
-        options={({navigation}) => ({
+        options={({ navigation }) => ({
           headerLeft: () => RightArrow(navigation),
           headerRight: () => ListItem(navigation),
         })}
@@ -363,7 +363,7 @@ function MainDrawer() {
         activeTintColor: '#fff',
         inactiveTintColor: '#aeaeae',
         activeBackgroundColor: '#5cbbff',
-        itemStyle: {marginVertical: 8, marginHorizontal: 8},
+        itemStyle: { marginVertical: 8, marginHorizontal: 8 },
       }}
       initialRouteName="DrawerHome"
       drawerStyle={{
@@ -387,7 +387,7 @@ function MainDrawer() {
   );
 }
 
-function RootContainer({user}) {
+function RootContainer({ user }) {
   const users = useSelector(state => state.userReducer.users);
   console.log('users++++++', users);
 
@@ -419,7 +419,7 @@ function RootContainer({user}) {
     //   <Drawer.Screen name="VideoPlayer" component={VideoPlayer} />
     // </Drawer.Navigator>
     <Stack.Navigator
-      screenOptions={{headerShown: false}}
+      screenOptions={{ headerShown: false }}
       sdetachInactiveScreens={true}>
       {/* <Stack.Screen name="SplashStack" component={SplashStack} /> */}
       {users !== null ? (

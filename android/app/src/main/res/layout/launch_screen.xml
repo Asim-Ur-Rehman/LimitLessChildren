@@ -7,12 +7,10 @@
 
 
    <ImageView
-        android:id="@+id/img1"
+        android:id="@+id/gif"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
-       android:background="@drawable/splash_cloud"
-        android:scaleType="fitStart" />
+        android:scaleType="centerCrop" />
 <!---
 
     <ImageView
