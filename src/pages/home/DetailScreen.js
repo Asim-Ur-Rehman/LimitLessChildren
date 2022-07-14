@@ -40,11 +40,9 @@ function DetailScreen({ navigation, route }) {
       <View style={styles.container}>
         <TouchableOpacity
           onPress={() =>
-            // navigation.navigate('VideoPlayer', {
-            //   vedioData: item
-            // })
-
-            navigation.navigate('VideoPlayer')
+            navigation.navigate('VideoPlayer', {
+              vedioData: vedioData
+            })
           }
           activeOpacity={0.9}
           style={{ width: '100%', height: '40%' }}>
@@ -85,14 +83,20 @@ function DetailScreen({ navigation, route }) {
           </View>
           <Image
             style={{ width: '100%', height: '100%', resizeMode: 'stretch' }}
-            source={require('../../assets/storydetailTitle.png')}
+            source={
+              vedioData?.thumbnail
+                ? { uri: vedioData?.thumbnail }
+                : require('../../assets/storydetailTitle.png')
+            }
           />
         </TouchableOpacity>
         <View style={{ paddingVertical: 10 }}>
           <View style={styles.row}>
             <View style={{ flexDirection: 'row' }}>
               <Text style={{ color: '#4d585b', fontFamily: 'Poppins-Bold' }}>
-                Friends, Me & Bus
+                {/* Friends, Me & Bus */}
+
+                {vedioData?.title}
               </Text>
               <View style={styles.btn}>
                 <Text
@@ -118,7 +122,7 @@ function DetailScreen({ navigation, route }) {
               style={{ width: 18, height: 18, resizeMode: 'contain' }}
               source={require('../../assets/eye-icon.png')}
             />
-            <Text style={styles.view}>2456 View</Text>
+            <Text style={styles.view}>{vedioData?.views} View</Text>
             <View
               style={{
                 width: 1,
@@ -126,14 +130,10 @@ function DetailScreen({ navigation, route }) {
                 backgroundColor: '#4d585b',
                 marginHorizontal: 10
               }}></View>
-            <Text>04:30</Text>
+            <Text>{vedioData?.duration}</Text>
           </View>
         </View>
-        <Text style={styles.dec}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam
-        </Text>
+        <Text style={styles.dec}>{vedioData?.description}</Text>
         <View style={styles.border}></View>
         <View>
           <Text style={styles.storiesText}>RELATED STORIES</Text>

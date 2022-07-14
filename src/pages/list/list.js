@@ -61,7 +61,7 @@ export default function List({ navigation }) {
       <View style={styles.container}>
         <TouchableOpacity
           activeOpacity={0.9}
-          onPress={() => navigation.navigate('DetailScreen')}
+          // onPress={() => navigation.navigate('DetailScreen')}
           style={{ width: '100%', height: '35%' }}>
           <View
             style={{
