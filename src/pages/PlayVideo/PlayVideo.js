@@ -1,13 +1,13 @@
-import React, {useState, useCallback, useRef} from 'react';
-import {StyleSheet, View, Dimensions, Button} from 'react-native';
+import React, { useState, useCallback, useRef } from 'react';
+import { StyleSheet, View, Dimensions, Button, TouchableOpacity, Image, StatusBar, } from 'react-native';
 // Load the module
 import Video from 'react-native-video';
-import {Vimeo} from 'react-native-vimeo-iframe';
+import { Vimeo } from 'react-native-vimeo-iframe';
 // Within your render function, assuming you have a file called
 // "background.mp4" in your project. You can include multiple videos
 // on a single screen if you like.
 
-export const VideoPlayer = ({navigation, route}) => {
+export const VideoPlayer = ({ navigation, route }) => {
   const vedioData = route?.params?.vedioData;
   let vedioURL = vedioData?.url?.substring(18, 28);
   // console.log('vedioData', vedioURL);
@@ -47,11 +47,39 @@ export const VideoPlayer = ({navigation, route}) => {
   };
 
   return (
-    <Vimeo
-      videoId={vedioURL ? vedioURL : '726774831'}
-      // params={'api=1&autoplay=0'}
-      handlers={videoCallbacks}
-    />
+
+
+    <>
+      {/* <StatusBar
+        barStyle="dark-content"
+        translucent={true}
+        backgroundColor={'#f8b293'}
+      /> */}
+
+      <TouchableOpacity
+        onPress={() => navigation.goBack()}
+        activeOpacity={0.9}
+        style={styles.back}>
+
+        <Image
+          style={styles.backImg}
+          source={require('../../assets/backIcon.png')}
+        />
+
+      </TouchableOpacity>
+
+      <Vimeo
+        videoId={vedioURL ? vedioURL : '726774831'}
+        // params={'api=1&autoplay=0'}
+        handlers={videoCallbacks}
+      // style={{
+      //   backgroundColor: 'grey'
+      // }}
+      />
+    </>
+
+
+
 
     // <Video
     //   source={{
@@ -92,5 +120,21 @@ const styles = StyleSheet.create({
     left: 0,
     bottom: 60,
     right: 0,
+  },
+  back: {
+
+    marginLeft: '5%',
+    marginTop: '15%',
+    // alignItems: 'center',
+    // justifyContent: 'center'
+    // backgroundColor: '#fff'
+  },
+  backImg: {
+    tintColor: 'black',
+    width: 22,
+    height: 22,
+    resizeMode: 'contain',
+    marginBottom: 15
+    // backgroundColor: 'white'
   },
 });
