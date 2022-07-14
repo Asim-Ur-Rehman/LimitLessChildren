@@ -17,7 +17,9 @@ import { userLogout } from '../redux/actions'
 import { CardView } from '../../components'
 import { color } from 'react-native-reanimated'
 
-function DetailScreen({ navigation }) {
+function DetailScreen({ navigation, route }) {
+  const vedioData = route?.params?.vedioData
+  console.log('vedioData in detail', vedioData)
   const [reason, setReason] = useState([
     { title: 'Snail Riding', image: require('../../assets/home01.png') },
     { title: 'Friend, Me & Bus', image: require('../../assets/home02.png') },
